@@ -1,5 +1,6 @@
 package spring.entities
 
+import jakarta.persistence.RollbackException
 import jakarta.validation.ConstraintViolationException
 import org.junit.jupiter.api.Test
 import spring.dao.DonatedItemsDAO
@@ -22,16 +23,22 @@ class DonateItemsServiceTest {
 
     @Test
     fun testCreateDonateItems_whenCreated_shouldReturnSuccessfully(){
-        val item2 = DonatedItems()
-        val savedItems = dataBaseEntity.insert(item2)
+        val savedItems = dataBaseEntity.insert(ItemsValid)
         assertThat(savedItems.id).isNotNull()
     }
 
     @Test
-    fun testCreateDonateItems_whenCreated_shouldReturnRunTimeException(){
-        val item = DonatedItems()
-        assertThrows(ConstraintViolationException::class.java){
-            dataBaseEntity.insert(item)
+    fun testCreateDonateItems_whenCreated_shouldReturnRollbackException(){
+        assertThrows(RollbackException::class.java){
+            dataBaseEntity.insert(ItemsInvalid)
         }
     }
+
+    @Test
+    fun testCrateDonatedItems_whenCreated_shouldReturn(){
+        val savedItems: List<DonatedItems> = dataBaseEntity.selectAll()
+        assertThat(savedItems.size).isGreaterThan(0)
+    }
+
+
 }

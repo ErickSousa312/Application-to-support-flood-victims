@@ -12,11 +12,12 @@ data class DonatedItems(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = 0 ,
-    @NotBlank
+    @field:NotBlank
     @field:NotNull
-    @field:Size(max = 1)
+    @field:Size(max = 150)
     var type: String?= null,
-    @NotBlank @Size(min = 5)
+    @field:NotBlank
+    @field:Size(min = 1)
     @field:NotNull
     var name: String? = null
 )
