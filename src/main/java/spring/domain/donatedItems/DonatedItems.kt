@@ -4,20 +4,29 @@ import jakarta.persistence.*
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Size
-import org.hibernate.validator.constraints.Length
+import java.util.*
 
 @Entity
 @Table(name = "donated_items")
 data class DonatedItems(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: Long? = 0 ,
+    var id: Long? = 0,
+
     @field:NotBlank
     @field:NotNull
     @field:Size(max = 150)
-    var type: String?= null,
+    @Column(name = "lot_id")
+    var lotId: String? = null,
+
     @field:NotBlank
     @field:Size(min = 1)
     @field:NotNull
-    var name: String? = null
+    @Column(columnDefinition = "text")
+
+    var itemId: String? = null,
+    var description: String? = null,
+    var quantity: Long? = null,
+    @Column(name = "expiration_date")
+    var expirationDate: Date? = null,
 )

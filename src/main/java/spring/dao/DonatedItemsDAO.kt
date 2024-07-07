@@ -25,4 +25,6 @@ class DonatedItemsDAO(private val persistenceContext: EntityManager) {
         val query: String = "select c from DonatedItems c"
         return persistenceContext.createQuery(query, DonatedItems::class.java).resultList
     }
+
+
 }

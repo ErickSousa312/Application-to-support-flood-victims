@@ -1,13 +1,10 @@
 package spring.domain.shelter
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 import jakarta.validation.constraints.NotNull
 
 @Entity
-class Shelter(
+data class Shelter(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int? = null,
@@ -21,5 +18,10 @@ class Shelter(
 
     var phone: String? = null,
 
-    var contact_email: String? = null
+    @Column(name = "contact_email")
+    var contactEmail: String? = null,
+
+    var capacity: Int? = null,
+
+    var peopleOcupation: String? = null,
 )
