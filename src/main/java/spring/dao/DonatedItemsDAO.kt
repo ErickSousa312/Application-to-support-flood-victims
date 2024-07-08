@@ -1,30 +1,30 @@
 package spring.dao;
 
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-import spring.domain.donatedItems.DonatedItems;
+import spring.domain.model.donatedItems.DonatedItems;
+import spring.utils.Jpa
 
-class DonatedItemsDAO(private val persistenceContext: EntityManager) {
+open class DonatedItemsDAO() {
+
+    private var em: EntityManager = Jpa.getEntityManager()
 
     private val validator: Validator = Validation.buildDefaultValidatorFactory().validator
 
-    fun insert(donatedItems: DonatedItems): DonatedItems {
-//        val violations = validator.validate(donatedItems)
-//
-//        if (violations.isNotEmpty()) {
-//            throw ConstraintViolationException("Validation failed for ${donatedItems.javaClass.simpleName}", violations)
-//        }
-        persistenceContext.transaction.begin()
-        persistenceContext.persist(donatedItems)
-        persistenceContext.transaction.commit()
+    @Transactional
+    open fun insert(donatedItems: DonatedItems): DonatedItems {
+        em.transaction.begin()
+        em.persist(donatedItems)
+        em.transaction.commit()
+        println(donatedItems)
         return donatedItems
     }
 
-    fun selectAll(): List<DonatedItems> {
-        val query: String = "select c from DonatedItems c"
-        return persistenceContext.createQuery(query, DonatedItems::class.java).resultList
-    }
-
+//    fun selectAll(): List<DonatedItems> {
+//        val query: String = "select c from DonatedItems c"
+//        return persistenceContext.createQuery(query, DonatedItems::class.java).resultList
+//    }
 
 }

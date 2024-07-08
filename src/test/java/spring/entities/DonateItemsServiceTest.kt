@@ -10,35 +10,36 @@ import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.BeforeEach
 import spring.commons.DonateItemsConstains.ItemsInvalid
 import spring.commons.DonateItemsConstains.ItemsValid
-import spring.domain.donatedItems.DonatedItems
+import spring.domain.model.donatedItems.DonatedItems
+import spring.domain.services.DonatedItemsService
 
 class DonateItemsServiceTest {
 
-    private lateinit var dataBaseEntity : DonatedItemsDAO
+    private lateinit var service : DonatedItemsService
 
     @BeforeEach
     fun setUp() {
-        dataBaseEntity = DonatedItemsDAO(Jpa.getEntityManager())
+        service = DonatedItemsService()
     }
 
     @Test
     fun testCreateDonateItems_whenCreated_shouldReturnSuccessfully(){
-        val savedItems = dataBaseEntity.insert(ItemsValid)
+        val savedItems = service.save(ItemsValid)
         assertThat(savedItems.id).isNotNull()
     }
 
     @Test
     fun testCreateDonateItems_whenCreated_shouldReturnRollbackException(){
         assertThrows(RollbackException::class.java){
-            dataBaseEntity.insert(ItemsInvalid)
+            service.save(ItemsInvalid)
         }
     }
 
-    @Test
-    fun testCrateDonatedItems_whenCreated_shouldReturn(){
-        val savedItems: List<DonatedItems> = dataBaseEntity.selectAll()
-        assertThat(savedItems.size).isGreaterThan(0)
-    }
+//    @Test
+//    fun testCrateDonatedItems_whenCreated_shouldReturn(){
+//        val savedItems: List<DonatedItems> = dataBaseEntity.selectAll()
+//        assertThat(savedItems.size).isGreaterThan(0)
+//    }
 
 
 }

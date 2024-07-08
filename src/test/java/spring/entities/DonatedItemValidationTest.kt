@@ -5,7 +5,7 @@ import jakarta.validation.Validator
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import spring.domain.donatedItems.DonatedItems
+import spring.domain.model.donatedItems.DonatedItems
 
 class DonatedItemValidationTest {
     private lateinit var validator: Validator

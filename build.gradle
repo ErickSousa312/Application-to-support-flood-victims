@@ -52,10 +52,6 @@ dependencies {
     implementation 'org.hibernate.validator:hibernate-validator-cdi:8.0.1.Final'
 
 
-
-
-
-
     testImplementation 'org.hamcrest:hamcrest:2.2'
 }
 tasks.named('test') {

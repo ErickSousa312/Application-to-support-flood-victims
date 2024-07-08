@@ -1,4 +1,4 @@
-package spring.domain.transferenceItem
+package spring.domain.model.transferenceItem
 
 import jakarta.persistence.*
 

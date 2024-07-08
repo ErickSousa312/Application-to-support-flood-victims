@@ -1,4 +1,4 @@
-package spring.domain.item
+package spring.domain.model.item
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

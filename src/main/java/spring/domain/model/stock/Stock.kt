@@ -1,4 +1,4 @@
-package spring.domain.stock
+package spring.domain.model.stock
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

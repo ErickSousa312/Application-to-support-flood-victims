@@ -1,4 +1,4 @@
-package spring.domain.orderCenter
+package spring.domain.model.orderCenter
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

@@ -6,7 +6,7 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
-import spring.domain.donatedItems.DonatedItems;
+import spring.domain.model.donatedItems.DonatedItems;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Set;

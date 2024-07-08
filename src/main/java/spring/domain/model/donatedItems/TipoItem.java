@@ -1,4 +1,4 @@
-package spring.domain.donatedItems;
+package spring.domain.model.donatedItems;
 
 public enum TipoItem {
     AGASALHO_M_INFANTIL,

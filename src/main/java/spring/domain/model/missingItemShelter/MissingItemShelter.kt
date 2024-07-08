@@ -1,4 +1,4 @@
-package spring.domain.missingItemShelter
+package spring.domain.model.missingItemShelter
 
 import jakarta.persistence.*
 

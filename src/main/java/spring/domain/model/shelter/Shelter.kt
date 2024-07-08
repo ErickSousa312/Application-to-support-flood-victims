@@ -1,4 +1,4 @@
-package spring.domain.shelter
+package spring.domain.model.shelter
 
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotNull

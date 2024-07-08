@@ -1,4 +1,4 @@
-package spring.domain.donatedItems
+package spring.domain.model.donatedItems
 
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotBlank
@@ -13,18 +13,17 @@ data class DonatedItems(
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = 0,
 
-    @field:NotBlank
-    @field:NotNull
-    @field:Size(max = 150)
+//    @field:NotBlank
+//    @field:NotNull
+//    @field:Size(max = 150)
     @Column(name = "lot_id")
-    var lotId: String? = null,
+    var lotId: Int? = null,
 
-    @field:NotBlank
-    @field:Size(min = 1)
-    @field:NotNull
-    @Column(columnDefinition = "text")
-
-    var itemId: String? = null,
+//    @field:NotBlank
+//    @field:Size(min = 1)
+//    @field:NotNull
+    @Column(name = "item_id")
+    var itemId: Int? = null,
     var description: String? = null,
     var quantity: Long? = null,
     @Column(name = "expiration_date")

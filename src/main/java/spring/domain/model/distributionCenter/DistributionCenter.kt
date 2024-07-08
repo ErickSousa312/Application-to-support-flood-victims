@@ -1,9 +1,9 @@
-package spring.domain.distributionCenter
+package spring.domain.model.distributionCenter
 
 import jakarta.persistence.*
 
 @Entity
-data class distributionCenter(
+data class DistributionCenter(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0,

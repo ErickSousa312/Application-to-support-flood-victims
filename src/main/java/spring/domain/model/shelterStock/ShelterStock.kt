@@ -1,4 +1,4 @@
-package spring.domain.shelterStock
+package spring.domain.model.shelterStock
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
