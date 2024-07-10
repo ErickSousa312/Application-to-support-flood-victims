@@ -1,10 +1,7 @@
 package spring.commons
 
-import spring.domain.model.donatedItems.DonatedItems
-import java.text.DateFormat
+import spring.domain.model.donatedItems.DonatedItem
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.util.*
 
 object DonateItemsConstains {
 
@@ -13,7 +10,7 @@ object DonateItemsConstains {
 
     private val date1 = dateFormat.parse(dateString)
 
-    val ItemsValid: DonatedItems = DonatedItems(
+    val ItemsValid: DonatedItem = DonatedItem(
         null,
         1,
         1,
@@ -21,5 +18,13 @@ object DonateItemsConstains {
         50,
         date1,
         )
-    val ItemsInvalid: DonatedItems = DonatedItems()
+    val ItemsValid2: DonatedItem = DonatedItem(
+        null,
+        2,
+        2,
+        "anyone description",
+        50,
+        date1,
+        )
+    val ItemsInvalid: DonatedItem = DonatedItem()
 }
