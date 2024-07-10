@@ -1,8 +1,10 @@
 package spring.domain.model.transferenceItem
 
 import jakarta.persistence.*
+import java.util.*
 
 @Entity
+@Table(name = "transference_item")
 data class TransferenceItem(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,5 +18,6 @@ data class TransferenceItem(
     @Column(name = "item_id")
     var itemId: Int? = null,
     var quantity: Int? = null,
-    var transferenceData: Int? = null
+    @Column(name = "transference_data")
+    var transferenceData: Date? = null
 )

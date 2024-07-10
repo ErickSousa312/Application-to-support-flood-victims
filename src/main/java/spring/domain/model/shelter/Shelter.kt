@@ -22,6 +22,6 @@ data class Shelter(
     var contactEmail: String? = null,
 
     var capacity: Int? = null,
-
-    var peopleOcupation: String? = null,
+    @Column(name = "people_occupation")
+    var peopleOccupation: Int? = null,
 )

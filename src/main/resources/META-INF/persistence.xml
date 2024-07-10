@@ -10,6 +10,11 @@
         <class>spring.domain.model.lot.Lot</class>
         <class>spring.domain.model.shelter.Shelter</class>
         <class>spring.domain.model.stock.Stock</class>
+        <class>spring.domain.model.missingItemShelter.MissingItemShelter</class>
+        <class>spring.domain.model.orderCenter.OrderCenter</class>
+        <class>spring.domain.model.transferenceItem.TransferenceItem</class>
+
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db" />

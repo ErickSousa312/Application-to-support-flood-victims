@@ -3,6 +3,7 @@ package spring.domain.model.missingItemShelter
 import jakarta.persistence.*
 
 @Entity
+@Table(name = "missing_item_shelter")
 data class MissingItemShelter (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
