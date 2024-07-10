@@ -6,7 +6,7 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
-import spring.domain.model.donatedItems.DonatedItems;
+import spring.domain.model.donatedItems.DonatedItem;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Set;
@@ -25,8 +25,8 @@ public class TestValidation {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
 
-        DonatedItems items = new DonatedItems();
-        Set<ConstraintViolation<DonatedItems>> constraintViolations =
+        DonatedItem items = new DonatedItem();
+        Set<ConstraintViolation<DonatedItem>> constraintViolations =
                 validator.validate( items );
         assertThat(constraintViolations.size()).isGreaterThan(0);
     }

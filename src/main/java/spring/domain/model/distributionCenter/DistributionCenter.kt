@@ -3,6 +3,7 @@ package spring.domain.model.distributionCenter
 import jakarta.persistence.*
 
 @Entity
+@Table(name = "distribution_center")
 data class DistributionCenter(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

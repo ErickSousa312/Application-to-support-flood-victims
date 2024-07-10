@@ -1,13 +1,14 @@
 package spring.web.controller
 
-import spring.domain.model.donatedItems.DonatedItems
-import spring.domain.services.DonatedItemsService
+import spring.domain.model.donatedItems.DonatedItem
+import spring.domain.services.DonatedItemService
 
 class DonatedItemsController  {
+    companion object{
+        private val donatedItemsService: DonatedItemService = DonatedItemService()
 
-    private val donatedItemsService: DonatedItemsService = DonatedItemsService()
-
-    fun insert (donatedItems: DonatedItems):DonatedItems{
-        return donatedItemsService.save(donatedItems)
+        fun insert (donatedItems: DonatedItem):DonatedItem{
+            return donatedItemsService.save(donatedItems)
+        }
     }
 }

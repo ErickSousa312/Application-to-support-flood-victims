@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-import spring.domain.model.donatedItems.DonatedItems;
+import spring.domain.model.donatedItems.DonatedItem;
 import spring.utils.Jpa
 
 open class DonatedItemsDAO() {
@@ -14,7 +14,7 @@ open class DonatedItemsDAO() {
     private val validator: Validator = Validation.buildDefaultValidatorFactory().validator
 
     @Transactional
-    open fun insert(donatedItems: DonatedItems): DonatedItems {
+    open fun insert(donatedItems: DonatedItem): DonatedItem {
         em.transaction.begin()
         em.persist(donatedItems)
         em.transaction.commit()
