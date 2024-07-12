@@ -10,7 +10,7 @@ class LotService: LotRepository {
     private val entity : EntityManager = Jpa.getEntityManager()
 
     override fun findById(id: Long): Lot? {
-        TODO("Not yet implemented")
+        return entity.find(Lot::class.java, id)
     }
 
     override fun findAll(): List<Lot?>? {

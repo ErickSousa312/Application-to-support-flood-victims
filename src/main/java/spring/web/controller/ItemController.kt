@@ -10,5 +10,9 @@ class ItemController {
         fun insert (item : Item) : Item {
             return itemService.save(item)
         }
+
+        fun findById(itemId : Long) : Item? {
+            return itemService.findById(itemId)
+        }
     }
 }

@@ -10,5 +10,8 @@ class LotController {
         fun insert (lot: Lot):Lot{
             return LotService.save(lot)
         }
+        fun findById (id:Long) : Lot?{
+            return LotService.findById(id)
+        }
     }
 }

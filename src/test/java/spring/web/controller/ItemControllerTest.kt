@@ -11,4 +11,10 @@ class ItemControllerTest {
         val item = ItemController.insert(item)
         assertThat(item.id).isNotNull()
     }
+
+    @Test
+    fun testUpdateItem_whenSearchById_thenReturnItem() {
+        val item = ItemController.findById(2)
+        assertThat(item?.id).isNotNull()
+    }
 }

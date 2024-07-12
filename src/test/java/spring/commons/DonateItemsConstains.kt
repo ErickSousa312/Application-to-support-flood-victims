@@ -1,6 +1,7 @@
 package spring.commons
 
 import spring.domain.model.donatedItems.DonatedItem
+import spring.domain.model.lot.Lot
 import java.text.SimpleDateFormat
 
 object DonateItemsConstains {
@@ -12,16 +13,16 @@ object DonateItemsConstains {
 
     val ItemsValid: DonatedItem = DonatedItem(
         null,
-        1,
-        1,
+        Lot(),
+        null,
         "anyone description",
         50,
         date1,
         )
     val ItemsValid2: DonatedItem = DonatedItem(
         null,
-        2,
-        2,
+        Lot(),
+        null,
         "anyone description",
         50,
         date1,

@@ -8,5 +8,5 @@ object TransferenceItemContains {
     private val fomatterData = SimpleDateFormat("yyyy-MM-dd")
     private val dataString = "2024-07-09"
     private val date: Date = fomatterData.parse(dataString)
-    val transferenceItemValid: TransferenceItem = TransferenceItem(null,1,1,1,1,50,date)
+    val transferenceItemValid: TransferenceItem = TransferenceItem(null,null,1,1,1,50,date)
 }

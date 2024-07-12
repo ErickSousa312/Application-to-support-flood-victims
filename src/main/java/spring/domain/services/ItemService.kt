@@ -11,7 +11,7 @@ class ItemService: ItemRepository {
 
 
     override fun findById(id: Long): Item? {
-        TODO("Not yet implemented")
+        return entity.find(Item::class.java, id)
     }
 
     override fun findAll(): List<Item?>? {

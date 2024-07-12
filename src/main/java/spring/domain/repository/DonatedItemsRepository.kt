@@ -1,9 +1,10 @@
 package spring.domain.repository
 
+import spring.domain.dto.DonatedItemDTO
 import spring.domain.model.donatedItems.DonatedItem
 
 interface DonatedItemsRepository {
-    fun findById(id: Long?): DonatedItem?
+    fun findById(id: Long?): DonatedItemDTO?
     fun findAll(): List<DonatedItem?>?
     fun save(donatedItems: DonatedItem): DonatedItem
     fun update(user: DonatedItem?)
