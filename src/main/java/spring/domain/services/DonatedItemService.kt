@@ -3,7 +3,7 @@ package spring.domain.services
 import jakarta.persistence.EntityManager
 import jakarta.validation.Validation
 import jakarta.validation.Validator
-import spring.domain.dto.DonatedItemDTO
+import spring.web.dto.DonatedItemDTO
 import spring.domain.model.donatedItems.DonatedItem
 import spring.domain.repository.DonatedItemsRepository
 import spring.utils.Jpa
@@ -22,7 +22,7 @@ class DonatedItemService : DonatedItemsRepository{
     override fun findById(id: Long?): DonatedItemDTO {
         val query: String = "SELECT d FROM DonatedItem d WHERE d.id = :id"
         val result = entity.createQuery(query,DonatedItem::class.java).setParameter("id", id).singleResult
-        val dataDTO:DonatedItemDTO = DonatedItemDTO(result)
+        val dataDTO: DonatedItemDTO = DonatedItemDTO(result)
         println(dataDTO.toString())
         return dataDTO
     }

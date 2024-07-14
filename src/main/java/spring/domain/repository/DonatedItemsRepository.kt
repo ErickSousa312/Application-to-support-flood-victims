@@ -1,6 +1,6 @@
 package spring.domain.repository
 
-import spring.domain.dto.DonatedItemDTO
+import spring.web.dto.DonatedItemDTO
 import spring.domain.model.donatedItems.DonatedItem
 
 interface DonatedItemsRepository {
