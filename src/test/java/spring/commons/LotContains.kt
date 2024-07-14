@@ -11,7 +11,6 @@ object LotContains {
     private val dataString = "2024-07-08"
     private val date: Date = formatterDate.parse(dataString)
 
-    private var donatedItemId: MutableSet<DonatedItem>? = HashSet()
+    private var donatedItemId: MutableList<DonatedItem>? = mutableListOf()
     val LotValid = Lot(null,donatedItemId,2,date)
-
 }

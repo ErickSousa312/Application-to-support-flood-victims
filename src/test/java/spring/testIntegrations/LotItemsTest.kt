@@ -15,12 +15,12 @@ class LotItemsTest {
         val item = ItemController.findById(52)
         assertThat(item?.id).isNotNull
 
-        val donatedItemOBJ = DonatedItem(null,null,item,"nada",29,Date())
-        val lot = Lot(null, mutableSetOf(donatedItemOBJ),0,Date())
+        val donatedItemOBJ = DonatedItem(null, Lot(),item,"nada",29,Date())
+        val lot = Lot(null, mutableListOf(donatedItemOBJ),0,Date())
 
-        assertThat(lot.donatedItemId).contains(donatedItemOBJ)
-//        val result = LotController.insert(lot)
-//        assertThat(result.id).isNotNull
+//        assertThat(lot.donatedItemId).contains(donatedItemOBJ)
+        val result = LotController.insert(lot)
+        assertThat(result.id).isNotNull
 //        val search = LotController.findById(result.id!!)
 
     }
