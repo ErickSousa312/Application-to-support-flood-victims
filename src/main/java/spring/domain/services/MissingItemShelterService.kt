@@ -23,7 +23,7 @@ class MissingItemShelterService: MissingItemShelterRepository {
         return entity
     }
 
-    override fun update(entity: MissingItemShelter?) {
+    override fun update(entity: MissingItemShelter?):MissingItemShelter {
         TODO("Not yet implemented")
     }
 

@@ -26,8 +26,21 @@ class ItemService: ItemRepository {
         return entity
     }
 
-    override fun update(user: Item?) {
-        TODO("Not yet implemented")
+    override fun update(entity: Item?): Item? {
+
+        var item = entity?.id?.let { findById(it) }?: return null
+        item.apply {
+            id = entity.id
+            name = entity.name
+            gender = entity.gender
+            size = entity.size
+            type = entity.type
+            unitOfMeasureType = entity.unitOfMeasureType
+        }
+        this.entity.transaction.begin()
+        this.entity.merge(item)
+        this.entity.transaction.commit()
+        return item
     }
 
     override fun delete(id: Long?) {

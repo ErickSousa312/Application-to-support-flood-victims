@@ -1,12 +1,9 @@
 package spring.web.ui.choice
 
-import org.springframework.boot.actuate.autoconfigure.wavefront.WavefrontProperties
 import spring.utils.ConsoleUI
-import spring.web.ui.MainUi
-import spring.web.ui.MainUi.Companion
 import spring.web.ui.item.Item
 
-class Registrations {
+class registerEntities {
     companion object {
         fun run() {
             while (true){

@@ -12,13 +12,17 @@ class ItemController {
             return itemService.save(item)
         }
 
-        fun findById(itemId : Long) : Item? {
-            return itemService.findById(itemId)
+        fun findById(itemId : Long) : ItemDTO? {
+            return itemService.findById(itemId)?.let { ItemDTO(it) }
         }
 
         fun findAll() : MutableList<ItemDTO> {
             val items = itemService.findAll()?:return emptyList<ItemDTO>().toMutableList()
             return items.map { ItemDTO(it) }.toMutableList()
+        }
+
+        fun update(item : ItemDTO) : ItemDTO? {
+            return itemService.update(Item.mapToItem(item))?.let { ItemDTO(it) }
         }
     }
 }

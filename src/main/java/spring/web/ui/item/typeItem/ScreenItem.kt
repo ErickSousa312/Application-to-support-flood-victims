@@ -6,6 +6,7 @@ import spring.web.ui.item.typeItem.crud.create.CreateClothing
 import spring.web.ui.item.typeItem.crud.create.CreateFood
 import spring.web.ui.item.typeItem.crud.create.CreateHygieneProduct
 import spring.web.ui.item.typeItem.crud.read.ReadItem
+import spring.web.ui.item.typeItem.crud.update.UpdateItem
 import java.lang.Thread.sleep
 
 class ScreenItem {
@@ -25,20 +26,53 @@ class ScreenItem {
                 break
             }
 
-//--------------------------------------------------------------------------------------------------------------------
             val item = when (type) {
                 ItemType.ROUPA -> CreateClothing.run(type)
                 ItemType.PRODUTO_DE_HIGIENE -> CreateHygieneProduct.run(type)
                 ItemType.ALIMENTO -> CreateFood.run(type)
             }
-//--------------------------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------------
+
             println("Item criado: $item")
             sleep(5000)
         }
 
+        //--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
         fun viewItem(){
             ReadItem.run()
+        }
+
+        //--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
+        fun updateItem() {
+            var type: ItemType
+            while (true) {
+                print("Digite o tipo do item (ROUPA, PRODUTO_DE_HIGIENE, ALIMENTO): ")
+                val typeInput = ConsoleUI.getInputString()
+                type = try {
+                    ItemType.valueOf(typeInput.uppercase())
+                } catch (e: IllegalArgumentException) {
+                    println("Tipo de item invalido. Use ROUPA, PRODUTO_DE_HIGIENE ou ALIMENTO. Tente novamente.")
+                    continue
+                }
+                break
+            }
+
+            ConsoleUI.clear()
+            println("||===========================================||")
+            println("||                                           ||")
+            println("||   digite o ID do item para ser alterado   ||")
+            println("||                                           ||")
+            println("|| 0 - EXIT                                  ||")
+            println("||===========================================||")
+            print(">> ")
+
+            while (true) {
+                when (val choice = ConsoleUI.getInputInteger()) {
+                    0 -> break
+                    else -> UpdateItem.run(choice)
+                }
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ class TransferenceItemService: TransferenceItemRepository {
         return entity
     }
 
-    override fun update(entity: TransferenceItem?) {
+    override fun update(entity: TransferenceItem?):TransferenceItem {
         TODO("Not yet implemented")
     }
 
