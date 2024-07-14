@@ -10,11 +10,9 @@ data class Lot(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long? = null,
-    @OneToMany(
-        mappedBy = "lotId",
-        cascade = [(CascadeType.ALL)],
-    )
-    var donatedItemId: MutableSet<DonatedItem>? = HashSet(),
+    @OneToMany(mappedBy = "lotId" ,cascade=[(CascadeType.ALL)])
+    @Column(name = "donate_item_id")
+    var donatedItemId: MutableList<DonatedItem>? = mutableListOf(),
     @Column(name = "distribution_center")
     var distributionCenter: Long? = 0,
     @Column(name = "send_date")
@@ -28,7 +26,6 @@ data class Lot(
 
         return id == other.id
     }
-
     override fun hashCode(): Int {
         return id?.hashCode() ?: 0
     }
