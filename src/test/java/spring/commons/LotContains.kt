@@ -1,5 +1,6 @@
 package spring.commons
 
+import spring.domain.model.donatedItems.DonatedItem
 import spring.domain.model.lot.Lot
 import java.text.SimpleDateFormat
 import java.util.*
@@ -10,6 +11,6 @@ object LotContains {
     private val dataString = "2024-07-08"
     private val date: Date = formatterDate.parse(dataString)
 
-    val LotValid = Lot(null,1,2,date)
-
+    private var donatedItemId: MutableList<DonatedItem>? = mutableListOf()
+    val LotValid = Lot(null,donatedItemId,2,date)
 }

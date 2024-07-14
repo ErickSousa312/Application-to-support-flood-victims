@@ -11,10 +11,10 @@ class ItemService: ItemRepository {
 
 
     override fun findById(id: Long): Item? {
-        TODO("Not yet implemented")
+        return entity.find(Item::class.java, id)
     }
 
-    override fun findAll(): List<Item?>? {
+    override fun findAll(): List<Item>? {
         val query: String = "select c from Item c"
         return entity.createQuery(query, Item::class.java).resultList
     }

@@ -12,4 +12,9 @@ class LotControllerTest {
         assertThat(result.id).isNotNull
     }
 
+    @Test
+    fun testLot_whenSearching_shouldReturnLot() {
+//        val result = LotController.findById()
+    }
+
 }
