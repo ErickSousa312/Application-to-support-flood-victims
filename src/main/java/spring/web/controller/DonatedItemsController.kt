@@ -1,6 +1,6 @@
 package spring.web.controller
 
-import spring.domain.dto.DonatedItemDTO
+import spring.web.dto.DonatedItemDTO
 import spring.domain.model.donatedItems.DonatedItem
 import spring.domain.services.DonatedItemService
 
