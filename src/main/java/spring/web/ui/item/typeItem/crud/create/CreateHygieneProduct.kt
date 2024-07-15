@@ -11,7 +11,7 @@ class CreateHygieneProduct {
     companion object {
         fun run (type:ItemType){
             var hygieneType: HigieneType
-            while (true) {
+            do {
                 print("Digite o tipo de produto de higiene (SABONETE, ESCOVA_DE_DENTES, PASTA_DE_DENTES, ABSORVENTES): ")
                 val higieneTypeInput = ConsoleUI.getInputString()
                 hygieneType = try {
@@ -36,8 +36,19 @@ class CreateHygieneProduct {
 
                 val item = Item(null,null,type,description,null,null, UnitOfMeasureType.UNIDADE)
                 ItemController.insert(item)
-                break
-            }
+
+                println("")
+                println("deseja inserir mais produtos ?")
+                println("1 - sim")
+                println("2 - nao")
+                println("")
+                print(">> ")
+                val inputUser = ConsoleUI.getInputInteger()
+                when (inputUser) {
+                    1-> continue
+                    2-> break
+                }
+            }while (true)
         }
     }
 }

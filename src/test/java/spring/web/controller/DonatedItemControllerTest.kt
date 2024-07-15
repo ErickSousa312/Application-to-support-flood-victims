@@ -3,11 +3,8 @@ package spring.web.controller
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import spring.commons.DonateItemsConstains.ItemsValid
-import spring.commons.DonateItemsConstains.ItemsValid2
 import spring.domain.model.donatedItems.DonatedItem
 import spring.domain.model.item.Item
-import spring.domain.model.lot.Lot
 import spring.domain.services.DonatedItemService
 import java.text.SimpleDateFormat
 

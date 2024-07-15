@@ -16,6 +16,11 @@ class ConsoleUI {
             scanner.nextLine()
             return value
         }
+        fun getInputIntegerLong() : Long{
+            val value = scanner.nextLong()
+            scanner.nextLine()
+            return value
+        }
         fun getInputString():String{
             val value = scanner.nextLine()
             return value

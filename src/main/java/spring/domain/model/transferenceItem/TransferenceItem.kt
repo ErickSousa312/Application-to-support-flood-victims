@@ -1,6 +1,7 @@
 package spring.domain.model.transferenceItem
 
 import jakarta.persistence.*
+import spring.domain.model.item.Item
 import java.util.*
 
 @Entity
@@ -15,8 +16,10 @@ data class TransferenceItem(
     var originId: Int? = null,
     @Column(name = "destination_id")
     var destinationId: Int? = null,
-    @Column(name = "item_id")
-    var itemId: Int? = null,
+    @ManyToOne
+    @JoinColumn(name = "item_id", unique = false)
+    var item: Item? = null,
+
     var quantity: Int? = null,
     @Column(name = "transference_data")
     var transferenceData: Date? = null

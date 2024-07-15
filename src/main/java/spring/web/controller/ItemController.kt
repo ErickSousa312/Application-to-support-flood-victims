@@ -12,7 +12,7 @@ class ItemController {
             return itemService.save(item)
         }
 
-        fun findById(itemId : Long) : ItemDTO? {
+        fun findById(itemId: Long) : ItemDTO? {
             return itemService.findById(itemId)?.let { ItemDTO(it) }
         }
 
@@ -23,6 +23,10 @@ class ItemController {
 
         fun update(item : ItemDTO) : ItemDTO? {
             return itemService.update(Item.mapToItem(item))?.let { ItemDTO(it) }
+        }
+
+        fun delete(item : Long) {
+            return itemService.delete(item)
         }
     }
 }

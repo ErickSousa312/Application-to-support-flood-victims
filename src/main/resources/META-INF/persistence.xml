@@ -14,6 +14,7 @@
         <class>spring.domain.model.orderCenter.OrderCenter</class>
         <class>spring.domain.model.transferenceItem.TransferenceItem</class>
         <class>spring.domain.model.shelterStock.ShelterStock</class>
+        <class>spring.domain.model.transferType.TransferenceType</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

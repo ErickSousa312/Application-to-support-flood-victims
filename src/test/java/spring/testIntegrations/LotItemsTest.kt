@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test
 import spring.domain.model.donatedItems.DonatedItem
 import spring.domain.model.item.Item
 import spring.domain.model.lot.Lot
-import spring.web.controller.DonatedItemsController
 import spring.web.controller.ItemController
 import spring.web.controller.LotController
 import java.util.*

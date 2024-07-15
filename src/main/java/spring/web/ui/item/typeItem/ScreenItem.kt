@@ -5,8 +5,11 @@ import spring.utils.ConsoleUI
 import spring.web.ui.item.typeItem.crud.create.CreateClothing
 import spring.web.ui.item.typeItem.crud.create.CreateFood
 import spring.web.ui.item.typeItem.crud.create.CreateHygieneProduct
+import spring.web.ui.item.typeItem.crud.delete.DeleteItem
 import spring.web.ui.item.typeItem.crud.read.ReadItem
-import spring.web.ui.item.typeItem.crud.update.UpdateItem
+import spring.web.ui.item.typeItem.crud.update.UpdateItemClothing
+import spring.web.ui.item.typeItem.crud.update.UpdateItemFood
+import spring.web.ui.item.typeItem.crud.update.UpdateItemHygiene
 import java.lang.Thread.sleep
 
 class ScreenItem {
@@ -35,19 +38,17 @@ class ScreenItem {
             println("Item criado: $item")
             sleep(5000)
         }
-
-        //--------------------------------------------------------------------------------------------------------------------
+ //--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------
         fun viewItem(){
             ReadItem.run()
         }
-
-        //--------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------------
         fun updateItem() {
             var type: ItemType
             while (true) {
-                print("Digite o tipo do item (ROUPA, PRODUTO_DE_HIGIENE, ALIMENTO): ")
+                print("Digite o tipo do item para atualizar (ROUPA, PRODUTO_DE_HIGIENE, ALIMENTO): ")
                 val typeInput = ConsoleUI.getInputString()
                 type = try {
                     ItemType.valueOf(typeInput.uppercase())
@@ -57,22 +58,15 @@ class ScreenItem {
                 }
                 break
             }
-
-            ConsoleUI.clear()
-            println("||===========================================||")
-            println("||                                           ||")
-            println("||   digite o ID do item para ser alterado   ||")
-            println("||                                           ||")
-            println("|| 0 - EXIT                                  ||")
-            println("||===========================================||")
-            print(">> ")
-
-            while (true) {
-                when (val choice = ConsoleUI.getInputInteger()) {
-                    0 -> break
-                    else -> UpdateItem.run(choice)
-                }
+            when (type) {
+                ItemType.ROUPA -> UpdateItemClothing.run()
+                ItemType.PRODUTO_DE_HIGIENE -> UpdateItemHygiene.run()
+                ItemType.ALIMENTO -> UpdateItemFood.run()
             }
+        }
+
+        fun deleteItem(){
+            DeleteItem.run()
         }
     }
 }

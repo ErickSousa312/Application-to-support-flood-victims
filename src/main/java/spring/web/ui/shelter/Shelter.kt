@@ -1,28 +1,21 @@
-package spring.web.ui.item
+package spring.web.ui.shelter
 
 import spring.utils.ConsoleUI
-import spring.web.ui.item.typeItem.ScreenItem
 
-class Item {
+class Shelter {
     companion object {
         fun screen(){
-            while(true){
-                showGUIItem()
+            while (true){
+                showGUIShelter()
                 when(ConsoleUI.getInputInteger()){
-                    1-> ScreenItem.createItem()
-                    2-> ScreenItem.viewItem()
-                    3-> ScreenItem.updateItem()
-                    4-> ScreenItem.deleteItem()
-                    5-> break
-                    else -> break
+                    1-> print("oi")
                 }
             }
-
         }
-        private fun showGUIItem() {
+        private fun showGUIShelter() {
             ConsoleUI.clear()
             println("||============================||")
-            println("||            Item            ||")
+            println("||           Abrigo           ||")
             println("||                            ||")
             println("|| 1 - Criar                  ||")
             println("|| 2 - Vizualizar             ||")

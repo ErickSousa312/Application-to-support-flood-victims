@@ -23,4 +23,11 @@ class ItemControllerTest {
         assertThat(itemUpdated).isEqualTo(item)
     }
 
+    @Test
+    fun testDeleteItem_whenDeleted_thenReturnItemDeleted() {
+        ItemController.delete(502)
+        val item = ItemController.findById(502)
+        assertThat(item?.id).isNull()
+    }
+
 }
