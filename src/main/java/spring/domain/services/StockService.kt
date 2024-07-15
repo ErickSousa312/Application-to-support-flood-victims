@@ -23,7 +23,7 @@ class StockService: StockRepository{
         return entity
     }
 
-    override fun update(entity: Stock?) {
+    override fun update(entity: Stock?):Stock {
         TODO("Not yet implemented")
     }
 

@@ -1,6 +1,8 @@
 package spring.domain.model.shelterStock
 
 import jakarta.persistence.*
+import spring.domain.model.item.Item
+import spring.domain.model.shelter.Shelter
 import java.time.LocalDate
 
 @Entity
@@ -9,10 +11,15 @@ data class ShelterStock (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-    @Column(name = "shelter_id")
-    var shelterId: Long? = null,
-    @Column(name = "item_id")
-    var itemId: String? = null,
+
+    @ManyToOne
+    @JoinColumn(name = "shelter_id", unique = false)
+    var shelterId: Shelter? = null,
+
+    @ManyToOne
+    @JoinColumn(name = "item_id", unique = false)
+    var itemId: Item? = null,
+
     @Column(name = "expiration_date")
     var expirationDate : LocalDate? = null,
     var quantity : Int? = null,

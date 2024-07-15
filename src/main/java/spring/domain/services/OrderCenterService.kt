@@ -25,7 +25,7 @@ class OrderCenterService: OrderCenterRepository {
         return entity
     }
 
-    override fun update(entity: OrderCenter?) {
+    override fun update(entity: OrderCenter?):OrderCenter {
         TODO("Not yet implemented")
     }
 

@@ -24,7 +24,7 @@ class ShelterStockController: ShelterStockRepository {
         return entity
     }
 
-    override fun update(entity: ShelterStock?) {
+    override fun update(entity: ShelterStock?) :ShelterStock{
         TODO("Not yet implemented")
     }
 

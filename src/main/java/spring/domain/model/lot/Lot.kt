@@ -1,6 +1,7 @@
 package spring.domain.model.lot
 
 import jakarta.persistence.*
+import spring.domain.model.distributionCenter.DistributionCenter
 import spring.domain.model.donatedItems.DonatedItem
 import java.util.*
 
@@ -13,20 +14,9 @@ data class Lot(
     @OneToMany(mappedBy = "lotId" ,cascade=[(CascadeType.ALL)])
     @Column(name = "donate_item_id")
     var donatedItemId: MutableList<DonatedItem>? = mutableListOf(),
-    @Column(name = "distribution_center")
-    var distributionCenter: Long? = 0,
+    @ManyToOne
+    @JoinColumn(name = "distribution_center", unique = false)
+    var distributionCenter: DistributionCenter? = null,
     @Column(name = "send_date")
     var sendDate: Date? = Date(),
-){
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as Lot
-
-        return id == other.id
-    }
-    override fun hashCode(): Int {
-        return id?.hashCode() ?: 0
-    }
-}
+)

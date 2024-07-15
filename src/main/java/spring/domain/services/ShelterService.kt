@@ -25,7 +25,7 @@ class ShelterService:ShelterRepository {
         return entity
     }
 
-    override fun update(entity: Shelter?) {
+    override fun update(entity: Shelter?):Shelter {
         TODO("Not yet implemented")
     }
 

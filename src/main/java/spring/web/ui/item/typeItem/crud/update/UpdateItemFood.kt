@@ -1,21 +1,40 @@
-package spring.web.ui.item.typeItem.crud.create
+package spring.web.ui.item.typeItem.crud.update
 
-import spring.domain.enums.ItemType
 import spring.domain.enums.UnitOfMeasureType
-import spring.domain.model.item.Item
 import spring.utils.ConsoleUI
 import spring.web.controller.ItemController
+import spring.web.dto.ItemDTO
+import java.lang.Thread.sleep
 
-class CreateFood {
-    companion object{
-        fun run (itemType: ItemType){
+class UpdateItemFood {
+    companion object {
+        fun run() {
+            while (true) {
+                ConsoleUI.clear()
+                println("||===========================================||")
+                println("||                                           ||")
+                println("||   digite o ID do item para ser alterado   ||")
+                println("||                                           ||")
+                println("|| 0 - EXIT                                  ||")
+                println("||===========================================||")
+                print(">> ")
+                when (val choice = ConsoleUI.getInputIntegerLong()) {
+                    0L -> break
+                    else -> updateItem(choice)
+                }
+            }
+        }
+
+        private fun updateItem(idItem: Long) {
             do {
-                var nameFood: String
+                val item = ItemDTO()
+                item.id = idItem
+
                 while (true) {
                     print("Digite o nome do alimento: ")
                     val inputName: String = ConsoleUI.getInputString()
                     if (inputName.isNotEmpty()) {
-                        nameFood = inputName.uppercase()
+                        item.name = inputName.uppercase()
                     } else {
                         println("O nome do alimento nao pode ser vazio: ")
                         continue
@@ -23,23 +42,11 @@ class CreateFood {
                     break
                 }
 
-//                var quantidade: Int
-//                while (true) {
-//                    print("Digite a quantidade do alimento: ")
-//                    quantidade = ConsoleUI.getInputInteger()
-//                    if (quantidade <= 0) {
-//                        println("A quantidade do alimento deve ser maior que zero. Tente novamente.")
-//                    } else {
-//                        break
-//                    }
-//                }
-
-                var unidadeMedida: UnitOfMeasureType
                 while (true) {
                     print("Digite a unidade de medida do alimento (QUILOGRAMA, LITROS, UNIDADE): ")
                     val unidadeMedidaInput = ConsoleUI.getInputString()
-                    unidadeMedida = try {
-                        UnitOfMeasureType.valueOf(unidadeMedidaInput.uppercase())
+                    item.unitOfMeasure = try {
+                        UnitOfMeasureType.valueOf(unidadeMedidaInput.uppercase()).toString()
                     } catch (e: Exception) {
                         println("Unidade de medida nao pode ser vazia. Tente novamente.")
                         continue
@@ -47,11 +54,10 @@ class CreateFood {
                     break
                 }
 
-                var description: String
                 while (true) {
                     print("Digite a descricao do item: ")
                     val descriptionInput = ConsoleUI.getInputString()
-                    description = try {
+                    item.description = try {
                         descriptionInput
                     } catch (e: IllegalArgumentException) {
                         println("")
@@ -60,9 +66,11 @@ class CreateFood {
                     break
                 }
 
-                val item = Item(null, nameFood, itemType, description, null, null, unidadeMedida)
-                ItemController.insert(item)
+                item.let { ItemController.update(it) }
 
+
+                println("Operacao realizada com sucesso")
+                sleep(3000)
                 println("")
                 println("deseja inserir mais produtos ?")
                 println("1 - sim")
@@ -74,6 +82,7 @@ class CreateFood {
                     1-> continue
                     2-> break
                 }
+
             }while (true)
         }
     }

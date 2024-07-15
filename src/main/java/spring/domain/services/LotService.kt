@@ -22,7 +22,7 @@ class LotService: LotRepository {
         TODO("Not yet implemented")
     }
 
-    override fun update(entity: Lot?) {
+    override fun update(entity: Lot?):Lot {
         TODO("Not yet implemented")
     }
 

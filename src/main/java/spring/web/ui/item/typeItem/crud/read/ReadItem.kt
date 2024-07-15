@@ -12,6 +12,7 @@ class ReadItem {
             while (true){
                 when(ConsoleUI.getInputInteger()){
                     1 -> break
+                    else -> ConsoleUI.invalidChoice()
                 }
             }
         }

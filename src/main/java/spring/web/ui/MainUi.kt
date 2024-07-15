@@ -1,9 +1,7 @@
 package spring.web.ui
 
 import spring.utils.ConsoleUI
-import spring.web.ui.choice.Registrations
-import spring.web.ui.item.Item
-import java.lang.Thread.sleep
+import spring.web.ui.choice.registerEntities
 
 class MainUi {
     companion object {
@@ -12,7 +10,7 @@ class MainUi {
             while (true){
                 showGUI()
                 when(ConsoleUI.getInputInteger()){
-                    1-> Registrations.run()
+                    1-> registerEntities.run()
                     2-> print("Donation Lot Selected")
                     else-> ConsoleUI.invalidChoice()
                 }

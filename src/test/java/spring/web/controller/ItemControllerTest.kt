@@ -13,8 +13,21 @@ class ItemControllerTest {
     }
 
     @Test
-    fun testUpdateItem_whenSearchById_thenReturnItem() {
-        val item = ItemController.findById(2)
+    fun testUpdateItem_whenUpdated_thenReturnItemUpdated() {
+        val item = ItemController.findById(552)
         assertThat(item?.id).isNotNull()
+        item?.apply {
+            name = "teste updated"
+        }
+        val itemUpdated = item?.let { ItemController.update(it) }
+        assertThat(itemUpdated).isEqualTo(item)
     }
+
+    @Test
+    fun testDeleteItem_whenDeleted_thenReturnItemDeleted() {
+        ItemController.delete(502)
+        val item = ItemController.findById(502)
+        assertThat(item?.id).isNull()
+    }
+
 }
